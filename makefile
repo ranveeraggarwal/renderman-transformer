@@ -15,5 +15,5 @@ shadowlight.slo: shadowlight.sl
 caus.cpm: caus.rib
 	prman caus.rib
 clean:
-	rm *.slo arealight.rib caus.cpm
+	rm *.slo arealight.rib caus.cpm display-transformer.tif
 .PHONY: all clean

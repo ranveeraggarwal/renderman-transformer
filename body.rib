@@ -5,7 +5,7 @@ TransformEnd
 
 TransformBegin
     Translate 0.0 0.025 0.0
-    Rotate 0 1.0 0.0 0.0 #waist_x
+    Rotate 5 1.0 0.0 0.0 #waist_x
     Rotate 0 0.0 1.0 0.0 #waist_y
     Rotate 0 0.0 0.0 1.0 #waist_z
     Translate 0.0 -0.025 0.0
@@ -14,21 +14,27 @@ TransformBegin
     TransformBegin
         TransformBegin
             Translate 0.0 0.225 0.0
+	    Color [1 0 0]
             Scale 0.2 0.4 0.15
             ReadArchive "unitcube.rib"
         TransformEnd
         TransformBegin
             Translate 0.0 0.225 -0.0725
+	    Surface "transparent"
+	    Color [1 1 1]
             Scale 0.14 0.34 0.01
             ReadArchive "unitcube.rib"
         TransformEnd
         TransformBegin
             Translate 0.0 0.325 0.0725
+	    Surface "transparent"
+	    Color [1 1 1]
             Scale 0.18 0.15 0.01
             ReadArchive "unitcube.rib"
         TransformEnd
         TransformBegin
             Translate 0.0 0.200 0.0725
+	    Surface "metal" #\m/
             Scale 0.15 0.04 0.01
             ReadArchive "unitcube.rib"
         TransformEnd
@@ -51,13 +57,15 @@ TransformBegin
             Translate -0.05 0.075 0.0725
             Scale 0.06 0.05 0.01
             ReadArchive "unitcube.rib"
+	    Surface "diffsurf"
+	    Color [0 0 1]
         TransformEnd
     TransformEnd
 
     #Head
     TransformBegin
         Translate 0.0 0.425 0.0
-        Rotate 0 1.0 0.0 0.0 #neck_x
+        Rotate -5 1.0 0.0 0.0 #neck_x
         Rotate 0 0.0 1.0 0.0 #neck_y
         Rotate 0 0.0 0.0 1.0 #neck_z
         Translate 0.0 -0.425 0.0
@@ -68,6 +76,8 @@ TransformBegin
         TransformEnd
         TransformBegin
             Translate 0.0 0.515 0.0
+	    Surface "metal"
+	    Color [1 1 1]
             Scale 0.11 0.010 0.06
             ReadArchive "unitcube.rib"
         TransformEnd
@@ -85,12 +95,14 @@ TransformBegin
             Translate 0.0 0.440 0.025
             Scale 0.09 0.04 0.005
             ReadArchive "unitcube.rib"
+	    Surface "diffsurf"
         TransformEnd
     TransformEnd
 
     
     #The right arm
     TransformBegin
+	Color [1 0 0]
         Translate -0.1 0.0 0.0
         Rotate 0 0.0 1.0 0.0 #rs_joint_x
         Translate 0.1 0.0 0.0
@@ -99,6 +111,13 @@ TransformBegin
             Scale 0.03 0.05 0.03
             ReadArchive "unitcube.rib"
         TransformEnd
+	TransformBegin
+	    Color [1 1 1]
+	    Translate -0.1 0.375 0.0
+	    Rotate 90 1 0 0
+	    Cylinder  0.005 0.350 0.4 360
+	    Color [1 0 0]
+	TransformEnd
         #Move pivot back
         Translate -0.13 0.375 0.0
         #Shoulder Y rotation
@@ -106,7 +125,7 @@ TransformBegin
         #Shoulder Z rotation
         Rotate 0 0.0 0.0 1.0 #right_shoulder_z
         #Shoulder X rotation
-        Rotate 0 1.0 0.0 0.0 #right_shoulder_x
+        Rotate 30 1.0 0.0 0.0 #right_shoulder_x
             #Get pivot to origin
         Translate 0.13 -0.375 0.0
 
@@ -122,7 +141,7 @@ TransformBegin
             Translate 0.0 0 0.0 #elbows_y_offset
             Translate -0.13 0.125 0.0
             #Rotate Elbow Joint
-            Rotate 0 1.0 0.0 0.0 #right_elbow_x
+            Rotate -90 1.0 0.0 0.0 #right_elbow_x
             #Move pivot up
             Translate 0.13 -0.125 0.0
 
@@ -133,7 +152,7 @@ TransformBegin
             TransformEnd
 
             Translate -0.16 -0.175 0.0
-            Rotate 0 1.0 0.0 0.0 #right_wrist_x
+            Rotate -50 1.0 0.0 0.0 #right_wrist_x
             Rotate 0 0.0 0.0 1.0 #right_wrist_z
             Translate 0.16 0.175 0.0
 
@@ -141,7 +160,9 @@ TransformBegin
             TransformBegin
                 Translate -0.16 -0.2 0.0
                 Scale 0.07 0.05 0.07
+	        Color [0 0 1]
                 ReadArchive "unitcube.rib"
+		#Rotate 90 1 0 0
             TransformEnd
             #Wrist Ends
         TransformEnd
@@ -151,6 +172,7 @@ TransformBegin
 
     #The left arm
     TransformBegin
+	Color [1 0 0]
         Translate 0.1 0.0 0.0
         Rotate 0 0.0 1.0 0.0 #ls_joint_x
         Translate -0.1 0.0 0.0
@@ -166,7 +188,7 @@ TransformBegin
         #Shoulder Z rotation
         Rotate 0 0.0 0.0 1.0 #left_shoulder_z
         #Shoulder X rotation
-        Rotate 0 1.0 0.0 0.0 #left_shoulder_x
+        Rotate -30 1.0 0.0 0.0 #left_shoulder_x
         #Get pivot to origin
         Translate -0.13 -0.375 0.0
 
@@ -182,7 +204,7 @@ TransformBegin
             Translate 0.0 0 0.0 #elbows_y_offset
             Translate 0.13 0.125 0.0
             #Rotate Elbow Joint
-            Rotate 0 1.0 0.0 0.0 #left_elbow_x
+            Rotate -90 1.0 0.0 0.0 #left_elbow_x
             #Move pivot up
             Translate -0.13 -0.125 0.0
 
@@ -193,7 +215,7 @@ TransformBegin
             TransformEnd
 
             Translate 0.16 -0.175 0.0
-            Rotate 0 1.0 0.0 0.0 #left_wrist_x
+            Rotate 50 1.0 0.0 0.0 #left_wrist_x
             Rotate 0 0.0 0.0 1.0 #left_wrist_z
             Translate -0.16 0.175 0.0
 
@@ -201,6 +223,7 @@ TransformBegin
             TransformBegin
                 Translate 0.16 -0.2 0.0
                 Scale 0.07 0.05 0.07
+	    	Color [0 0 1]
                 ReadArchive "unitcube.rib"
             TransformEnd
             #Wrist Ends
@@ -223,6 +246,7 @@ TransformBegin
         TransformBegin
             Translate -0.06 -0.185 0.0
             Scale 0.08 0.32 0.12
+	    Color [1 1 1]
             ReadArchive "unitcube.rib"
         TransformEnd
     TransformEnd
@@ -236,6 +260,7 @@ TransformBegin
         TransformBegin
             Translate -0.06 -0.465 0.0
             Scale 0.08 0.24 0.08
+	    Color [0 0 1]
             ReadArchive "unitcube.rib"
         TransformEnd
 
@@ -266,6 +291,7 @@ TransformBegin
     TransformBegin
         Translate 0.06 -0.185 0.0
         Scale 0.08 0.32 0.12
+        Color [1 1 1]
         ReadArchive "unitcube.rib"
     TransformEnd
 
@@ -278,6 +304,7 @@ TransformBegin
         TransformBegin
             Translate 0.06 -0.465 0.0
             Scale 0.08 0.24 0.08
+	    Color [0 0 1]
             ReadArchive "unitcube.rib"
         TransformEnd
 

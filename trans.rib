@@ -25,8 +25,9 @@ WorldBegin
 	Surface "diffsurf"
         Color [1 1 1]
 	Polygon "P" [-4 8 4 -4 8 -4 4 8 -4 4 8 4 ] "st" [0 0 0 1 1 1 1 0] #Up
+	Color [1 0 0]
 	Polygon "P" [-4 0 4 -4 8 4 4 8 4 4 0 4] "st" [0 0 0 1 1 1 1 0] #Back
-	Color [0.48 0.18 0.01]
+	Color [0.8 0.8 0.8]
 	Color [1 0 0]
 	Polygon "P" [-4 0 -4 -4 0 4 4 0 4 4 0 -4] "st" [0 0 0 1 1 1 1 0] #Floor
 	Surface "texsurf"
@@ -51,8 +52,9 @@ WorldBegin
 	TransformBegin
 		Color [0 0 1]
 		Surface "diffsurf"
-		Translate -1 0.65 2
+		Translate -1 1.25 2
 		Rotate 195 0 1 0
+		Scale 2 2 2 
 		ReadArchive "body.rib"
 	TransformEnd
 WorldEnd
