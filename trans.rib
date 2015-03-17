@@ -1,0 +1,56 @@
+# transformer.rib
+# Author: Ranveer, Abhinav
+# Date: 6/7/95
+#
+Display "display-transformer.tif" "tiff" "rgba"
+#Display "transform" "framebuffer" "rgba"
+Format 1200 800 1
+Projection "perspective" "fov" 45
+PixelSamples 5 5 
+
+Attribute "visibility" "int diffuse" [1]
+Attribute "visibility" "int specular" [1]
+Attribute "visibility" "int transmission" [1]
+Attribute "photon" "causticmap" "caus.cpm"
+Attribute "photon" "estimator" 200
+WorldBegin
+	 #LightSource "ambientlight" 1 "intensity" 0.6
+        #LightSource "distantlight" 2 "intensity" 0.6 "from" [-4 6 -7] "to" [0 0 0] "lightcolor" [1.0 1.0 1.0]
+        #LightSource "distantlight" 3 "intensity" 0.36 "from" [14 6 7] "to" [0 -2 0] "lightcolor" [1.0 1.0 1.0]
+	ReadArchive "arealight.rib"
+
+	Translate 0 -2 6
+	Rotate 10 0 1 0
+
+	Surface "diffsurf"
+        Color [1 1 1]
+	Polygon "P" [-4 8 4 -4 8 -4 4 8 -4 4 8 4 ] "st" [0 0 0 1 1 1 1 0] #Up
+	Polygon "P" [-4 0 4 -4 8 4 4 8 4 4 0 4] "st" [0 0 0 1 1 1 1 0] #Back
+	Color [1 0 0]
+	Polygon "P" [-4 0 -4 -4 0 4 4 0 4 4 0 -4] "st" [0 0 0 1 1 1 1 0] #Floor
+	Color [1 1 1]
+	Polygon "P" [4 0 4 4 8 4 4 8 -4 4 0 -4] "st" [0 0 0 1 1 1 1 0] #Right
+	Polygon "P" [-4 0 -4 -4 8 -4 -4 8 4 -4 0 4 ] "st" [0 0 0 1 1 1 1 0] #Left
+#	Polygon "P" [4 8 -4 -4 8 -4 -4 0 -4 4 0 -4] "st" [0 0 0 1 1 1 1 0] #Front
+	TransformBegin
+		Translate 0 0.2 0
+		Color [1 1 1]
+		Surface "metal"
+		Sphere 0.2 -0.2 0.2 360
+	TransformEnd
+
+	TransformBegin
+		Translate 1 0.2 -0.5
+		Color [1 1 1]
+		Surface "transparent"
+		Sphere 0.2 -0.2 0.2 360
+	TransformEnd
+
+	TransformBegin
+		Color [0 0 1]
+		Surface "diffsurf"
+		Translate -1 0.65 2
+		Rotate 195 0 1 0
+		ReadArchive "body.rib"
+	TransformEnd
+WorldEnd

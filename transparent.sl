@@ -7,7 +7,7 @@ transparent
           Kr=.1,
           Kt=.9,
           roughness=.1,
-          eta=1.33;
+          eta=0.75;
     color specularcolor=1
 )
 {
